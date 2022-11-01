@@ -12,7 +12,7 @@ class CuentaCorriente
     numero;
     saldo;
 
-    depositoEnCuenta(valor){
+    depositoEnCuenta(valor){ //la función es un método
         this.saldo += valor; //en vez de hacer una función para cada cuenta con el fin de aceptar depósitos, se utiliza this. Es decir si una cuenta recibe depósito, se suma el inicial el valor  
     }
 }
