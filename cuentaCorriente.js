@@ -1,4 +1,3 @@
-
 import {Cliente} from "./cliente.js"
 
 export class CuentaCorriente
@@ -7,21 +6,24 @@ export class CuentaCorriente
     numero;
     #saldo; //con el # se convierte el saldo en privado, eso quiere decir que en la consola no aparecerá el monto
     agencia;
+    static cantidadCuentas = 0;
 
-    set setCliente(valor) {
+    set cliente(valor) {
         if(valor instanceof Cliente)
         this.#cliente = valor;
     }
 
-    get getCliente(){
+    get cliente(){
         return this.#cliente;
     }
 
-    constructor(){
-       this.#cliente = null; //null significa que no existe pero que está el espacio
+    constructor(cliente, numero, agencia){ 
+        this.cliente = cliente;
+        //this.#cliente = null; //null significa que no existe pero que está el espacio
         this.#saldo = 0;
-        this.numero = ''; //se coloca así, para que no aparezca undefined en la consola. Si no como vacío y no se coloca valor inicial 
-        this.agencia = '';
+        this.numero = numero; //se coloca así, para que no aparezca undefined en la consola. Si no como vacío y no se coloca valor inicial 
+        this.agencia = agencia;
+        CuentaCorriente.cantidadCuentas++;
     }
 
     depositoEnCuenta(valor){ //la función es un método
