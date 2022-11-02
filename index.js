@@ -21,16 +21,25 @@ console.log('El Saldo actual (CuentaLeonardo) '+saldo);
 const cliente2 = new Cliente();
 cliente2.nombreCliente = 'Maria';
 cliente2.dniCliente = '16979808';
-cliente2.rutCliente = '8989';
 
 
 const cuentaDeMaria = new CuentaCorriente();
 cuentaDeMaria.numero = '2';
 cuentaDeMaria.agencia = '002';
-cuentaDeMaria.cliente = cliente2;
+cuentaDeMaria.cliente = cliente2; //asigno cliente a cliente 2
+
+console.log(cuentaDeMaria.cliente);
+cuentaDeMaria.cliente = 0;
+console.log(cuentaDeMaria.cliente);
+
+/*if(cuentaDeMaria.cliente)
+console.log(cuentaDeMaria.cliente);
+else
+console.log(cuentaDeMaria); */
+
 
 let parametroValor = 100;
-
+/*
 console.log('Parámetro Valor',parametroValor);
 cuentaDeLeonardo.transferirParaCuenta(parametroValor,cuentaDeMaria);
 console.log('Parámetro Valor',parametroValor);
