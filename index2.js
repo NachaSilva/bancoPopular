@@ -1,4 +1,4 @@
-//Definición de clases
+//clase que sirve repetir n veces 
 
 class Cliente
 {
@@ -10,48 +10,45 @@ class Cliente
 class CuentaCorriente
 {
     numero;
-    #saldo; //con el # se convierte el saldo en privado, eso quiere decir que en la consola no aparecerá el monto
-    agencia;
-
-    constructor(){
-        this.#saldo = 0;
-        this.numero = ''; //se coloca así, para que no aparezca undefined en la consola. Si no como vacío y no se coloca valor inicial 
-        this.agencia = '';
-    }
+    saldo;
 
     depositoEnCuenta(valor){ //la función es un método
-        if(valor > 0)          //para evitar que se deposite en negativo
-        this.#saldo += valor; //clase sepa a que instancia debe ir
-        return this.#saldo;
-
-    }
-
-    retirarDeCuenta(valor){      
-        if(valor <= this.#saldo)    //para evitar que quede en saldo negativo
-        this.#saldo -= valor;
-        return this.#saldo;
-    }
-
-    verSaldo(){
-        return this.#saldo;
+        this.saldo += valor; //en vez de hacer una función para cada cuenta con el fin de aceptar depósitos, se utiliza this. Es decir si una cuenta recibe depósito, se suma el inicial el valor  
     }
 }
 
-cuentaDeLeonardo = new CuentaCorriente()
-//cuentaDeLeonardo.saldo = 0;
 
-let saldo = cuentaDeLeonardo.verSaldo();
-console.log('El saldo actual es ' +saldo);
 
-saldo = cuentaDeLeonardo.depositoEnCuenta(100);
-console.log('El saldo actual es ' +saldo);
+const cliente1 = new Cliente();
+cliente1.nombreCliente = "José";
+cliente1.dniCliente = "13232";
 
-saldo = cuentaDeLeonardo.retirarDeCuenta(50);
-console.log('El saldo actual es ' +saldo);
+const cuentaCorriente1 = new CuentaCorriente();
+cuentaCorriente1.numero = "23232323";
+cuentaCorriente1.saldo = 5000;
 
-saldo = cuentaDeLeonardo.depositoEnCuenta(10);
-//saldo = cuentaDeLeonardo.verSaldo();
-console.log('El saldo actual es ' +saldo);
+const cliente2 = new Cliente();
+cliente2.nombreCliente = "María";
+cliente2.dniCliente = "12332";
+
+const cuentaCorriente2 = new CuentaCorriente();
+cuentaCorriente2.numero = "567832323";
+cuentaCorriente2.saldo = 2000;
+
+console.log(cuentaCorriente2.saldo);
+cuentaCorriente2.depositoEnCuenta(100); //se suma los 100 al saldo inicial de la cuenta (despues de linea 16)
+console.log(cuentaCorriente2.saldo);
+cuentaCorriente2.depositoEnCuenta(500); 
+console.log(cuentaCorriente2.saldo);
+
+const cliente3 = new Cliente();
+cliente3.nombreCliente = "Leonardo";
+cliente3.dniCliente = "134456789";
+
+const cuentaCorriente3 = new CuentaCorriente();
+cuentaCorriente3.numero = "12343434"
+cuentaCorriente3.saldo = 1000;
+
 
 
 

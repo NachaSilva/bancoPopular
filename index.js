@@ -1,51 +1,46 @@
-//clase que sirve repetir n veces 
+//Importación de clases
+import {Cliente} from './cliente.js'
+import {CuentaCorriente} from './cuentaCorriente.js';
 
-class Cliente
-{
-    nombreCliente;
-    dniCliente;
-}
-
-
-class CuentaCorriente
-{
-    numero;
-    saldo;
-
-    depositoEnCuenta(valor){ //la función es un método
-        this.saldo += valor; //en vez de hacer una función para cada cuenta con el fin de aceptar depósitos, se utiliza this. Es decir si una cuenta recibe depósito, se suma el inicial el valor  
-    }
-}
+const cliente = new Cliente(); 
+cliente.nombreCliente = 'Leonardo';
+cliente.dniCliente = '13804050';
 
 
+const cuentaDeLeonardo = new CuentaCorriente();
+cuentaDeLeonardo.numero = '1';
+cuentaDeLeonardo.agencia = '001';
+cuentaDeLeonardo.cliente = cliente;
 
-const cliente1 = new Cliente();
-cliente1.nombreCliente = "José";
-cliente1.dniCliente = "13232";
+//cuentaDeLeonardo.#saldo = 10;
+let saldo = cuentaDeLeonardo.verSaldo(); 
 
-const cuentaCorriente1 = new CuentaCorriente();
-cuentaCorriente1.numero = "23232323";
-cuentaCorriente1.saldo = 5000;
+saldo = cuentaDeLeonardo.depositoEnCuenta(150);
+console.log('El Saldo actual (CuentaLeonardo) '+saldo);
 
 const cliente2 = new Cliente();
-cliente2.nombreCliente = "María";
-cliente2.dniCliente = "12332";
+cliente2.nombreCliente = 'Maria';
+cliente2.dniCliente = '16979808';
+cliente2.rutCliente = '8989';
 
-const cuentaCorriente2 = new CuentaCorriente();
-cuentaCorriente2.numero = "567832323";
-cuentaCorriente2.saldo = 2000;
 
-console.log(cuentaCorriente2.saldo);
-cuentaCorriente2.depositoEnCuenta(100); //se suma los 100 al saldo inicial de la cuenta (despues de linea 16)
-console.log(cuentaCorriente2.saldo);
-cuentaCorriente2.depositoEnCuenta(500); 
-console.log(cuentaCorriente2.saldo);
+const cuentaDeMaria = new CuentaCorriente();
+cuentaDeMaria.numero = '2';
+cuentaDeMaria.agencia = '002';
+cuentaDeMaria.cliente = cliente2;
 
-const cliente3 = new Cliente();
-cliente3.nombreCliente = "Leonardo";
-cliente3.dniCliente = "134456789";
+let parametroValor = 100;
 
-const cuentaCorriente3 = new CuentaCorriente();
-cuentaCorriente3.numero = "12343434"
-cuentaCorriente3.saldo = 1000;
+console.log('Parámetro Valor',parametroValor);
+cuentaDeLeonardo.transferirParaCuenta(parametroValor,cuentaDeMaria);
+console.log('Parámetro Valor',parametroValor);
 
+const saldoMaria = cuentaDeMaria.verSaldo();
+
+console.log('Cuenta de Maria',cuentaDeMaria);
+
+/*
+console.log('El Saldo actual (cuentaMaria) '+saldoMaria);
+const saldoLeonardo = cuentaDeLeonardo.verSaldo();
+console.log('El Saldo actual (cuentaLeonardo) '+saldoLeonardo);
+*/
