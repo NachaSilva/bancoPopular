@@ -19,10 +19,9 @@ export class CuentaCorriente
 
     constructor(cliente, numero, agencia){ 
         this.cliente = cliente;
-        //this.#cliente = null; //null significa que no existe pero que está el espacio
-        this.#saldo = 0;
-        this.numero = numero; //se coloca así, para que no aparezca undefined en la consola. Si no como vacío y no se coloca valor inicial 
+        this.numero = numero;
         this.agencia = agencia;
+        this.#saldo = 0; 
         CuentaCorriente.cantidadCuentas++;
     }
 
@@ -46,6 +45,6 @@ export class CuentaCorriente
         this.retirarDeCuenta(valor);
         cuentaDestino.depositoEnCuenta(valor);
         valor = 200;
-        valor = valor*1000;;
+        valor = valor*1000;
     }
 }
