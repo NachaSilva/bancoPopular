@@ -1,51 +1,27 @@
-//Importación de clases
-import {Cliente} from './cliente.js'
-import {CuentaCorriente} from './cuentaCorriente.js';
+/*Importación de clases*/
+import {Cliente} from './Cliente.js'
+import {CuentaCorriente} from './CuentaCorriente.js';
+import { CuentaAhorro } from './CuentaAhorro.js';
+import { CuentaNomina } from './CuentaNomina';
 
-const cliente = new Cliente('Leonardo','13804050', '132224'); 
-const cliente2 = new Cliente('Maria','16979808', '8989');
+const cliente = new Cliente('Leonardo','13804050','123224');
+const cliente2 = new Cliente('María','16979808','8989');
 
+//const cuentaSimple = new Cuenta(cliente, '098', '002', '100'); //se muetsra el error para proteger la clase base que es cuenta para que no sea extansiada en el exterior
+//console.log(cuentaSimple);
 
-const cuentaDeLeonardo = new CuentaCorriente(cliente,'1','001');
-const cuentaDeMaria = new CuentaCorriente(cliente2, '2', '002');
+const cuentaDeLeonardo = new CuentaCorriente(cliente, '1', '001');
+const cuentaDeMaria = new CuentaCorriente(cliente2,'2','002');
 
-let saldo = cuentaDeLeonardo.verSaldo();
+const cuentaAhorroLeonardo = new CuentaAhorro(cliente,'9985','001',0);
+const cuentaNominaLeonardo = new CuentaNomina(cliente,'9854','001',100);
+cuentaNominaLeonardo.depositoEnCuenta(150);
+console.log(cuentaNominaLeonardo.verSaldo());
 
-saldo = cuentaDeLeonardo.depositoEnCuenta(150);
-cuentaDeLeonardo.transferirParaCuenta(parametroValor, cuentaDeMaria);
-
-const saldoMaria = cuentaDeMaria.verSaldo();
-
-console.log('Cuenta de Maria',cuentaDeMaria);
-
-console.log('El Saldo actual (cuentaMaria) '+saldoMaria);
-
-const saldoLeonardo = cuentaDeLeonardo.verSaldo();
-console.log('El Saldo actual (cuentaLeonardo) '+saldoLeonardo);
-console.log(CuentaCorriente.cantidadCuentas); //para todas las instancias de cuenta corriente, dame el total de cuentas
-
-console.log(CuentaCorriente.cantidadCuentas);
+cuentaNominaLeonardo.retirarDeCuenta(50);
+console.log(cuentaNominaLeonardo.verSaldo());
 
 
 
-/*if(cuentaDeMaria.cliente)
-console.log(cuentaDeMaria.cliente);
-else
-console.log(cuentaDeMaria); */
 
 
-//let parametroValor = 100;
-/*
-console.log('Parámetro Valor',parametroValor);
-cuentaDeLeonardo.transferirParaCuenta(parametroValor,cuentaDeMaria);
-console.log('Parámetro Valor',parametroValor);
-
-const saldoMaria = cuentaDeMaria.verSaldo();
-
-console.log('Cuenta de Maria',cuentaDeMaria);
-
-/*
-console.log('El Saldo actual (cuentaMaria) '+saldoMaria);
-const saldoLeonardo = cuentaDeLeonardo.verSaldo();
-console.log('El Saldo actual (cuentaLeonardo) '+saldoLeonardo);
-*/
