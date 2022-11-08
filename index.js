@@ -1,60 +1,25 @@
-//Importación de clases
-import {Cliente} from './cliente.js'
-import {CuentaCorriente} from './cuentaCorriente.js';
+/*Importación de clases*/
+import {Cliente} from './Cliente.js'
+import { Empleado } from './Empleados/Empleado.js';
+import { Gerente } from './Empleados/Gerente.js';
+import { Director } from './Empleados/Director.js';
+import { SistemaAutenticacion } from './SistemaAutenticacion.js';
 
-const cliente = new Cliente('Leonardo','13804050'); //se reduce las lineas al colocarlas dentro del valor
-//cliente.nombreCliente = 'Leonardo';
-//cliente.dniCliente = '13804050';
+//const cliente2 = new Cliente('María','16979808','8989');
 
-const cliente2 = new Cliente('Maria','16979808');
-//cliente2.nombreCliente = 'Maria';
-//cliente2.dniCliente = '16979808';
+const empleado = new Empleado('Juan Perez','1234343',10000);
+empleado.asignarClave('12345');
+console.log(SistemaAutenticacion.login(empleado,'12345'));
 
+const gerente = new Gerente('Pedro Rivas','232344',12000);
+gerente.asignarClave('655');
+console.log(SistemaAutenticacion.login(gerente,'655'));
 
-const cuentaDeLeonardo = new CuentaCorriente('1','001', cliente);
-//cuentaDeLeonardo.numero = '1';
-//cuentaDeLeonardo.agencia = '001';
-//cuentaDeLeonardo.cliente = cliente;
+//const director = new Director('Elena Moreno','232323',15000);
 
-const cuentaDeMaria = new CuentaCorriente('2', '002', cliente2);
-//cuentaDeMaria.numero = '2';
-//cuentaDeMaria.agencia = '002';
-//cuentaDeMaria.cliente = cliente2; //asigno cliente a cliente 2
-
-//cuentaDeLeonardo.#saldo = 10;
-let saldo = cuentaDeLeonardo.verSaldo();
-saldo = cuentaDeLeonardo.depositoEnCuenta(150);
-cuentaDeLeonardo.transferirParaCuenta(parametroValor, cuentaDeMaria);
-const saldoMaria = cuentaDeMaria.verSaldo();
-
-console.log('Cuenta de Maria',cuentaDeMaria);
-console.log('El Saldo actual (cuentaMaria) '+saldoMaria);
-
-const saldoLeonardo = cuentaDeLeonardo.verSaldo();
-console.log('El Saldo actual (cuentaLeonardo) '+saldoLeonardo);
-
-console.log(CuentaCorriente.cantidadCuentas); //para todas las instancias de cuenta corriente, dame el total de cuentas
+const cliente = new Cliente('Leonardo','13804050','123224');
+cliente.asignarClave('01111');
+console.log(SistemaAutenticacion.login(cliente,'01111'));
 
 
 
-/*if(cuentaDeMaria.cliente)
-console.log(cuentaDeMaria.cliente);
-else
-console.log(cuentaDeMaria); */
-
-
-let parametroValor = 100;
-/*
-console.log('Parámetro Valor',parametroValor);
-cuentaDeLeonardo.transferirParaCuenta(parametroValor,cuentaDeMaria);
-console.log('Parámetro Valor',parametroValor);
-
-const saldoMaria = cuentaDeMaria.verSaldo();
-
-console.log('Cuenta de Maria',cuentaDeMaria);
-
-/*
-console.log('El Saldo actual (cuentaMaria) '+saldoMaria);
-const saldoLeonardo = cuentaDeLeonardo.verSaldo();
-console.log('El Saldo actual (cuentaLeonardo) '+saldoLeonardo);
-*/
